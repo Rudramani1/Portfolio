@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+
+}
+
+:root {
+	--primary-light: #f3f4f6;
+    --primary-dark: #1f2937; 
+    --secondary-light: #4f46e5; 
+    --secondary-dark: #2563eb;
+
+    --box-shadow-1: 0 3px 15px rgba(0,0,0,.3);
+}
+
+body{
+    background-color: var(--primary-dark); 
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: var(--primary-light);
+    transition: all .4s ease-in-out;
+
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+header{
+    height: 100vh;
+    color: var(--primary-light);
+    overflow: hidden;
+
+}
+
+section{
+    min-height: 100vh;
+    width: 100%;
+    position:absolute;
+    left: 0;
+    top: 0;
+    padding: 3rem 18rem;
+}
+
+.section{
+    transform: translateY(-100%) scale(0);
+    transition: all .4s ease-in-out;
+    background-color: var(--secondary-dark);
+
+}
+
+section {
+    opacity: 0;
+    visibility: hidden; /* Prevent interaction with hidden sections */
+    transform: translateY(10px); /* Add slight offset for animation */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
+}
+
+.active {
+    display: block; /* Keep this for structure but rely on opacity for animation */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+}
+
+.sec1 {
+    color: black;
+}
+
+.sec2 {
+    color: slateblue;
+}
+
+.sec3 {
+    color: yellowgreen;
+}
+
+.sec4 {
+    color: black;
+}
+
+.sec5 {
+    color: white;
+}
+
+.controls {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    right: 3%;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-50%);
+}
+
+.controls .active-btn {
+    background-color: var(--primary-light) !important;
+    transition: all 0.4s ease-in-out;
+}
+
+.controls .active-btn i {
+    color: white;
+}
+
+.controls .control {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--primary-dark);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.7rem 0;
+    box-shadow: var(--box-shadow-1);
+}
+
+.controls .control i {
+    font-size: 1.2rem;
+    color: var(--secondary-light);
+    pointer-events: none;
+}
+
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header Section */
+.header-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    height: 100vh; /* Full height of the viewport */
+    align-items: center; /* Vertically center content */
+    padding: 1px; /* Add padding for better spacing */
+}
+
+.left-header {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    position: relative;
+}
+
+.h-shape {
+    transition: all 0.4s ease-in-out;
+    width: 100vh;
+    height: 100vh;
+    background-color: var(--primary-dark, #333); /* Fallback color */
+    position: fixed; /* Fixed position to cover the whole page */
+    left: 0;
+    top: 0;
+    z-index: -1; /* Push it behind other content */
+    clip-path: polygon(0 0, 15% 0, 100% 100%, 0% 100%);
+}
+
+
+.image img {
+    border-radius: 10% 10%;
+    width: 70vh;
+    height: 80vh; 
+    object-fit: cover; /* Ensure the image scales correctly */
+    transition: all 0.4s ease-in-out;
+    filter: grayscale(100%);
+}
+
+.image img:hover {
+    filter: grayscale(0); /* Remove grayscale effect on hover */
+}
+
+.right-header {
+    padding: 2rem;
+    text-align: left;
+
+}
+
+.name {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.name span {
+    color: #f4a261; /* Highlight your name */
+}
+
+.right-header p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    padding-right: 5rem;
+}
+
+.main-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-btn:hover {
+    background-color: #2c3e50; /* Darker blue on hover */
+}
+
+.btn-text {
+    margin-right: 0.5rem;
+}
+
+.btn-icon i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        text-align: center;
+    }
+
+    .left-header,
+    .right-header {
+        justify-content: center;
+    }
+
+    .image img {
+        max-width: 150px; /* Smaller image on mobile */
+        max-height: 150px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+}
+
+

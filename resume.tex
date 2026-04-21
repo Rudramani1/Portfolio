@@ -1,0 +1,277 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Rudra Mani Upadhyay - Resume},
+    pdfauthor={Rudra Mani Upadhyay},
+    pdfcreator={Rudra},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% PDF Readability:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Page Setup:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Rudra - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+\renewcommand\labelitemi{$\circ$}
+
+% Custom environments:
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm + 0.00001 cm}{0.2 cm + 0.00001 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{
+  \AddToShipoutPictureFG*{
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in October 2025}\hspace{\widthof{Last updated in October 2025}}
+    }}}%
+  }%
+}
+
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+\newcommand{\AND}{\unskip\cleaders\copy\ANDbox\hskip\wd\ANDbox\ignorespaces}
+\newsavebox\ANDbox
+\sbox\ANDbox{}
+
+\placelastupdatedtext
+\begin{header}
+    \textbf{\fontsize{24 pt}{24 pt}\selectfont Rudra Mani Upadhyay}
+
+    \vspace{0.3 cm}
+
+    \normalsize
+    \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}New Delhi, India}%
+    \kern 0.25 cm%
+    \AND%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{mailto:rudramaniupadhyay651@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}rudramaniupadhyay651@gmail.com}}%
+    \kern 0.25 cm%
+    \AND%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{tel:+919465784195}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+91 9465784195}}%
+    \kern 0.25 cm%
+    \AND%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/rudra-mani-upadhyay-47832b289}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}LinkedIn}}%
+    \kern 0.25 cm%
+    \AND%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{https://github.com/Rudramani1}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}GitHub}}%
+\end{header}
+
+% --- Ordered Sections ---
+\section{Professional Summary}
+\begin{onecolentry}
+    Detail-oriented and analytical B.Tech student specializing in Artificial Intelligence and Machine Learning with hands-on experience in Python, Flask, and full-stack web development. Strong foundation in algorithms, data analysis, and database systems. Experienced in building and deploying AI-driven applications using modern frameworks and APIs. Seeking opportunities to apply technical and problem-solving skills to real-world software and AI challenges.
+\end{onecolentry}
+
+\section{Technical Skills}
+\begin{onecolentry}
+    \textbf{Programming Languages:} Python, Java, C++, JavaScript, SQL, R, Bash
+
+    \textbf{Frameworks \& Libraries:} Flask, Django, TensorFlow, NumPy, Pandas, Scikit-learn, Bootstrap, React.js, Node.js, Next.js
+
+    \textbf{Databases:} MySQL, Firebase, SQLite
+
+    \textbf{Tools \& Platforms:} Git, Docker, VS Code, Jupyter Notebook, Linux, Google Cloud, Postman
+
+    \textbf{Soft Skills:} Team Collaboration, Adaptability, Time Management, Communication, Problem Solving, Logical Reasoning
+\end{onecolentry}
+
+\section{Experience}
+
+\begin{twocolentry}{
+    \textit{May 2025 -- July 2025}
+}
+    \textbf{FOSSEE Summer Fellowship} \\
+    \textit{IIT Bombay | Remote}
+\end{twocolentry}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed an AI-powered \textbf{eSim ChatBot} using Python and Flask for circuit simulation support.
+        \item Integrated \textbf{Large Language Models (LLMs)} with domain-specific datasets to improve contextual response accuracy by 25\%.
+        \item Deployed the chatbot in a scalable environment and contributed to FOSSEE’s open-source ecosystem.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    \textit{June 2025 -- July 2025}
+}
+    \textbf{Astronomy and Astrophysics Summer School} \\
+    \textit{India Space Academy}
+\end{twocolentry}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Completed \textbf{120 hours of intensive training and project work} in Data-Driven Astronomy.
+        \item Applied computational methods to analyze astronomical datasets and astrophysical phenomena using Python.
+        \item Strengthened skills in scientific inquiry, data visualization, and research methodology.
+    \end{highlights}
+\end{onecolentry}
+
+\section{Projects}
+
+\begin{twocolentry}{
+    \textit{\href{https://github.com/Rudramani1/Youtube-Summarizer}{GitHub Repository}}
+}
+    \textbf{YouTube Video Summarizer}
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built a Flask web app that extracts and summarizes YouTube video transcripts using \textbf{Together AI API} and NLP techniques.
+        \item Implemented API integration, web scraping, and text summarization for efficient content generation.
+        \item Tools: Flask, HTML, CSS, JavaScript, YouTube Transcript API, NLP.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{twocolentry}{
+    \textit{\href{https://github.com/Rudramani1/Pneumonia-Analysis}{GitHub Repository}}
+}
+    \textbf{Pneumonia Detection \& Awareness Platform}
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed a web app for pneumonia awareness and X-ray analysis using \textbf{Teachable Machine (TensorFlow.js)}.
+        \item Implemented AI-based image classification and interactive awareness dashboard.
+        \item Tools: TensorFlow.js, Bootstrap, HTML, CSS, JavaScript.
+    \end{highlights}
+\end{onecolentry}
+
+\section{Certifications \& Achievements}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{NPTEL:} Java Programming (IIT) \quad | \quad \textbf{Infosys Certification:} Data Structures \& Algorithms in Python
+        \item Certified in Python Programming, SQL, HTML \& CSS, and Machine Learning Essentials.
+        \item \textbf{NCAT (National Creativity Aptitude Test 2025):} Rank 12
+        \item \textbf{INNOQUEST Hackathon:} 3rd Place \quad | \quad \textbf{Smart AI Hackathon:} 3rd Place
+    \end{highlights}
+\end{onecolentry}
+
+\section{Education}
+
+\begin{twocolentry}{
+    \textit{Sept 2023 -- May 2027}
+}
+    \textbf{Dronacharya College of Engineering, Gurugram, Haryana} \\
+    \textit{B.Tech in Computer Science (Artificial Intelligence \& Machine Learning)}
+\end{twocolentry}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Relevant Coursework: Data Structures, Algorithms, Operating Systems, Database Management Systems (DBMS), Computer Networks, Data Science, Machine Learning.
+    \end{highlights}
+\end{onecolentry}
+
+\begin{twocolentry}{
+    \textit{2021 -- 2022}
+}
+    \textbf{Kendriya Vidyalaya Rangpuri AAI, New Delhi} \\
+    \textit{Senior Secondary (PCM + CS) – 79.8\%}
+\end{twocolentry}
+
+\begin{twocolentry}{
+    \textit{2019 -- 2020}
+}
+    \textbf{Kendriya Vidyalaya Rangpuri AAI, New Delhi} \\
+    \textit{Secondary (10\textsuperscript{th}) – 82\%}
+\end{twocolentry}
+
+\end{document}
